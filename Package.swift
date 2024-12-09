@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ViewInspector", dependencies: []),
+            name: "ViewInspector", dependencies: [.product(name: "XCTestDynamicOverlay", package: "xctest-dynamic-overlay")]),
         .testTarget(
             name: "ViewInspectorTests",
             dependencies: ["ViewInspector"],
