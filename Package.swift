@@ -13,6 +13,9 @@ let package = Package(
         .library(
             name: "ViewInspector", targets: ["ViewInspector"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.4.2"),
+    ],
     targets: [
         .target(
             name: "ViewInspector", dependencies: []),
