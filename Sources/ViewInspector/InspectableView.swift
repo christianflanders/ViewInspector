@@ -239,6 +239,7 @@ public extension View {
 
     nonisolated
     func inspect(function: String = #function) throws -> InspectableView<ViewType.ClassifiedView> {
+        XCTFail("VI called from \(function)")
         let medium = ViewHosting.medium(function: function)
         let content = try Inspector.unwrap(view: self, medium: medium)
         return try .init(content, parent: nil, call: "")
@@ -247,6 +248,7 @@ public extension View {
     nonisolated
     func inspect(function: String = #function, file: StaticString = #file, line: UInt = #line,
                  inspection: (InspectableView<ViewType.View<Self>>) throws -> Void) {
+                XCTFail("VI called from \(function)")
         do {
             let view = try inspect(function: function)
                 .asInspectableView(ofType: ViewType.View<Self>.self)
